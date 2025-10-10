@@ -5,14 +5,14 @@ import logging as lg
 import time
 
 lg.basicConfig(
-    filename=r"D:\Bosscoder\Project2\data\logs\ingestion.db.log",
+    filename=r"D:\Project2\data\logs\ingestion.db.log",
     level=lg.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
     filemode="a"
 )
 
 engine=create_engine('sqlite:///inventory.db')
-folder=r"D:\Bosscoder\Project2\data\data\\"
+folder=r"D:\Project2\data\data\\"
 def ingest_db(df,table_name,engine):
     ''' insert into db '''
     df.to_sql(table_name,con=engine ,if_exists='replace', index=False)
